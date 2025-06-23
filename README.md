@@ -1,18 +1,47 @@
-# PDF Assistant
+# 📚 PDF Assistant
 
-A modern Flask-based web application that provides intelligent PDF processing capabilities using RAG (Retrieval-Augmented Generation) technology. Upload PDFs, ask questions about their content, and get AI-powered responses.
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Flask](https://img.shields.io/badge/flask-2.3+-green.svg)](https://flask.palletsprojects.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🚀 Features
+A modern Flask-based web application that provides intelligent PDF processing capabilities using RAG (Retrieval-Augmented Generation) technology. Upload PDFs, ask questions about their content, and get AI-powered responses with document summarization features.
 
-- **PDF Upload & Processing**: Upload and process PDF documents with text extraction
-- **AI-Powered Querying**: Ask natural language questions about your PDF content
-- **Vector Search**: Efficient similarity search using FAISS vector database
-- **RAG System**: Advanced retrieval-augmented generation for accurate responses
-- **Web Search Integration**: Optional web search to enhance responses
-- **Document Management**: View, list, and delete uploaded documents
-- **Document Summarization**: Generate AI summaries of your documents
-- **Clean API**: RESTful API endpoints for all operations
-- **Modern UI**: Responsive web interface
+## ✨ Features
+
+- **📄 PDF Upload & Processing**: Upload and process PDF documents with advanced text extraction
+- **🤖 AI-Powered Querying**: Ask natural language questions about your PDF content
+- **🔍 Vector Search**: Efficient similarity search using FAISS vector database
+- **🧠 RAG System**: Advanced retrieval-augmented generation for accurate responses
+- **🌐 Web Search Integration**: Optional web search to enhance responses with external knowledge
+- **📋 Document Management**: View, list, delete, and summarize uploaded documents
+- **📊 Document Summarization**: Generate AI-powered summaries of your documents
+- **🔗 Clean API**: RESTful API endpoints for all operations
+- **💻 Modern UI**: Responsive web interface with smooth animations
+- **🎨 Beautiful Design**: Modern gradient UI with intuitive user experience
+
+## 🎬 Demo
+
+### Quick Start
+1. Upload a PDF document using the drag-and-drop interface
+2. Ask questions about the document content
+3. Generate AI-powered summaries
+4. Use web search integration for enhanced responses
+
+### Example Usage
+```
+📤 Upload: "Upload your research paper, textbook, or any PDF document"
+❓ Query: "What are the main conclusions of this paper?"
+📋 Summary: "Generate a comprehensive summary of the document"
+🔍 Enhanced Search: "Enable web search for broader context"
+```
+
+### Screenshots
+*Note: Add screenshots of your application interface here*
+
+- Main dashboard with upload interface
+- Document management and query interface  
+- Summary generation and results display
+- Mobile-responsive design
 
 ## 🏗️ Architecture
 
@@ -37,6 +66,15 @@ pdf-assistant/
 ├── requirements.txt      # Python dependencies
 └── run.py               # Application entry point
 ```
+
+## 💡 How It Works
+
+1. **Document Processing**: PDFs are parsed and text is extracted using advanced libraries
+2. **Embeddings Generation**: Text content is converted to vector embeddings
+3. **Vector Storage**: Embeddings are stored in FAISS for efficient similarity search
+4. **Query Processing**: User questions are embedded and matched against document content
+5. **RAG Response**: Relevant context is retrieved and used to generate accurate responses
+6. **Summarization**: Documents are analyzed to create concise, informative summaries
 
 ## 🛠️ Installation
 
@@ -104,109 +142,125 @@ pdf-assistant/
 
 ## 🔧 Configuration
 
-Key configuration options in `config.py`:
+### Environment Variables
+Create a `.env` file with the following variables:
 
-```python
-# File upload settings
-MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max
-ALLOWED_EXTENSIONS = {'pdf'}
+```env
+# Flask Configuration
+SECRET_KEY=your-secret-key-here
+DEBUG=True
+FLASK_ENV=development
 
-# AI/ML settings
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"
-VECTOR_STORE_PATH = "cache/vector_store"
+# AI Service API Keys (choose one or more)
+OPENAI_API_KEY=your-openai-api-key          # For GPT models
+HUGGINGFACE_API_KEY=your-huggingface-key    # For Hugging Face models
+ANTHROPIC_API_KEY=your-anthropic-key        # For Claude models
 
-# API Keys (set in .env)
-OPENAI_API_KEY = "your-key-here"
-HUGGINGFACE_API_KEY = "your-key-here"
+# Application Settings
+MAX_CONTENT_LENGTH=16777216                  # 16MB max file size
+UPLOAD_FOLDER=uploads
+CACHE_FOLDER=cache
 ```
 
-## 🧪 Testing
-
-Run the test suite:
-```bash
-python -m pytest tests/
-```
+### Supported AI Models
+- **OpenAI GPT**: GPT-3.5-turbo, GPT-4
+- **Hugging Face**: Various open-source models
+- **Anthropic Claude**: Claude-3, Claude-2
+- **Local Models**: Sentence transformers for embeddings
 
 ## 🚀 Deployment
 
-### Production Setup
+### Using Docker
+```bash
+# Build the image
+docker build -t pdf-assistant .
 
-1. Set environment to production:
-   ```env
-   DEBUG=False
-   SECRET_KEY=your-production-secret-key
-   ```
-
-2. Use a production WSGI server:
-   ```bash
-   pip install gunicorn
-   gunicorn -w 4 -b 0.0.0.0:8000 run:app
-   ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- [Flask](https://flask.palletsprojects.com/) - Web framework
-- [Sentence Transformers](https://www.sbert.net/) - Text embeddings
-- [FAISS](https://github.com/facebookresearch/faiss) - Vector similarity search
-- [LangChain](https://langchain.com/) - LLM framework
-- [PyMuPDF](https://pymupdf.readthedocs.io/) - PDF processing
-   cd pdf-assistant
-   ```
-
-2. Create a virtual environment:
-   ```
-   python -m venv venv
-   ```
-
-3. Activate the virtual environment:
-   - On Windows:
-     ```
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```
-     source venv/bin/activate
-     ```
-
-4. Install the required packages:
-   ```
-   pip install -r requirements.txt
-   ```
-
-5. Set up environment variables by copying `.env.example` to `.env` and modifying it as needed.
-
-## Usage
-
-To run the application, execute the following command:
+# Run the container
+docker run -p 5000:5000 -v $(pwd)/uploads:/app/uploads pdf-assistant
 ```
+
+### Using Heroku
+```bash
+# Login to Heroku
+heroku login
+
+# Create app
+heroku create your-app-name
+
+# Set environment variables
+heroku config:set SECRET_KEY=your-secret-key
+heroku config:set OPENAI_API_KEY=your-openai-key
+
+# Deploy
+git push heroku main
+```
+
+## 📊 Performance
+
+- **File Size Limit**: 16MB per PDF
+- **Supported Formats**: PDF (text-based)
+- **Response Time**: 2-5 seconds for queries
+- **Concurrent Users**: Scalable with proper deployment
+- **Storage**: Local file system (easily configurable for cloud storage)
+
+## 🛠️ Development
+
+### Running Tests
+```bash
+# Run all tests
+python -m pytest tests/
+
+# Run specific test file
+python test_complete_system.py
+
+# Run with coverage
+pip install pytest-cov
+python -m pytest --cov=app tests/
+```
+
+### Code Structure
+```
+app/
+├── static/js/main.js      # Frontend JavaScript
+├── static/css/style.css   # Styling and animations
+├── templates/             # HTML templates
+└── routes.py             # Flask routes and API endpoints
+
+utils/
+├── rag.py                # RAG system implementation  
+├── llm.py                # AI model integration
+├── pdf_parser.py         # PDF processing
+├── vector_store.py       # Vector database operations
+└── embeddings.py         # Text embedding generation
+```
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+**"Module not found" errors**:
+```bash
+pip install -r requirements.txt
+```
+
+**PDF processing errors**:
+- Ensure PDF contains extractable text
+- Check file size is under 16MB
+- Verify PDF is not password protected
+
+**AI model errors**:
+- Verify API keys are correctly set
+- Check internet connection for API calls
+- Ensure sufficient API quota/credits
+
+**Vector store issues**:
+```bash
+# Clear cache and restart
+rm -rf cache/embeddings/*
 python run.py
 ```
 
-Visit `http://127.0.0.1:5000` in your web browser to access the application.
-
-## Testing
-
-To run the tests, ensure your virtual environment is activated and execute:
-```
-pytest
-```
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
+### Getting Help
+- Check the [Issues](../../issues) section
+- Read the documentation in `WHERE_TO_FIND_SUMMARIES.md`
+- Review test files for usage examples

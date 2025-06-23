@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  pdf-assistant:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./cache:/app/cache
+      - ./data:/app/data
+    environment:
+      - FLASK_ENV=development
+      - DEBUG=True
+    env_file:
+      - .env
+    restart: unless-stopped
+    
+  # Optional: Add Redis for caching (uncomment if needed)
+  # redis:
+  #   image: redis:alpine
+  #   ports:
+  #     - "6379:6379"
+  #   restart: unless-stopped

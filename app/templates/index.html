@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}PDF Assistant - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="upload-section">
+        <h2>Upload PDF Document</h2>
+        <div class="upload-area" id="uploadArea">
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="fileInput" name="file" accept=".pdf" required>
+                <div class="upload-text">
+                    <p>Click to select PDF file or drag and drop</p>
+                    <small>Maximum file size: 16MB</small>
+                </div>
+                <button type="submit" id="uploadBtn">Upload PDF</button>
+            </form>
+        </div>
+        <div id="uploadStatus" class="status-message"></div>
+    </section>
+
+    <section class="query-section">
+        <h2>Ask Questions About Your Documents</h2>
+        <div class="query-form">
+            <textarea id="queryInput" placeholder="Ask a question about your uploaded PDFs..." rows="4"></textarea>
+            <div class="query-options">
+                <label>
+                    <input type="checkbox" id="webSearchOption"> Include web search
+                </label>
+                <button id="queryBtn" type="button">Ask Question</button>
+            </div>
+        </div>
+        <div id="queryResponse" class="response-area"></div>
+    </section>
+
+    <section class="documents-section">
+        <h2>Uploaded Documents</h2>
+        <div id="documentsList" class="documents-list">
+            <p>No documents uploaded yet.</p>
+        </div>
+    </section>
+
+    <section class="summary-section" id="summarySection" style="display: none;">
+        <h2>Document Summary</h2>
+        <div id="documentSummary" class="response-area"></div>
+    </section>
+</div>
+
+
+{% endblock %}

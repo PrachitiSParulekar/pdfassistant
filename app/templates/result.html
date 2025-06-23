@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}PDF Assistant - Results{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="result-section">
+        <h2>PDF Processing Results</h2>
+        <div class="result-container">
+            {% if result %}
+                <div class="result-details">
+                    <h3>Processing Complete</h3>
+                    <p>{{ result }}</p>
+                </div>
+            {% else %}
+                <p>No results to display.</p>
+            {% endif %}
+            <div class="actions">
+                <a href="{{ url_for('main.index') }}" class="button">Upload Another PDF</a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

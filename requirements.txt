@@ -1,0 +1,24 @@
+# Core Flask dependencies
+flask==3.0.0
+werkzeug==3.0.1
+
+# PDF processing
+pymupdf==1.23.8
+
+# ML and embeddings
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+numpy==1.26.2
+
+# LLM and AI
+langchain==0.1.0
+openai==1.6.1
+
+# Web requests
+requests==2.31.0
+
+# Environment and configuration
+python-dotenv==1.0.0
+
+# Logging and utilities
+rich==13.7.0

@@ -1,9 +1,4 @@
 # 📚 PDF Assistant
-
-[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![Flask](https://img.shields.io/badge/flask-2.3+-green.svg)](https://flask.palletsprojects.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 A modern Flask-based web application that provides intelligent PDF processing capabilities using RAG (Retrieval-Augmented Generation) technology. Upload PDFs, ask questions about their content, and get AI-powered responses with document summarization features.
 
 ## ✨ Features
@@ -35,13 +30,6 @@ A modern Flask-based web application that provides intelligent PDF processing ca
 🔍 Enhanced Search: "Enable web search for broader context"
 ```
 
-### Screenshots
-*Note: Add screenshots of your application interface here*
-
-- Main dashboard with upload interface
-- Document management and query interface  
-- Summary generation and results display
-- Mobile-responsive design
 
 ## 🏗️ Architecture
 
